@@ -1,0 +1,14 @@
+SetEnvIf Request_URI ".*" Ngx_Cache_NoCacheMode=off
+SetEnvIf Request_URI ".*" Ngx_Cache_StaticMode
+
+AuthUserFile "/home/yonitsuka/yushi-onitsuka.com/htpasswd/.htpasswd"
+AuthName "Member Site"
+AuthType BASIC
+require valid-user
+
+RewriteEngine on
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://yushi-onitsuka.com/$1 [R=301,L]
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^(www\.yushi-onitsuka.com.com)(:80)?
+RewriteRule ^(.*) https://yushi-onitsuka.com/$1 [R=301,L]
