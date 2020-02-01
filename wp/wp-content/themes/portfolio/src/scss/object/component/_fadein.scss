@@ -1,0 +1,20 @@
+.js-fadein_continuous > *{
+  opacity: 0;
+}
+.js-fadein_continuous.is-active > *{
+  animation: fadein_continuous 2s $ease-out-expo forwards;
+}
+.js-fadein_continuous.c-fadein{
+  > *{
+      animation: fadein_continuous 2s $ease-out-expo forwards;
+      @for $fadein_continuous from 1 through 100 {
+          &:nth-of-type(#{$fadein_continuous}){
+              animation-delay: calc((#{$fadein_continuous} - 1) * .2s);
+          }
+      }
+  }
+}
+@keyframes fadein_continuous{
+  0%{opacity: 0; transform: translateY(32px);}
+  100%{opacity: 1; transform: translateY(0);}
+}

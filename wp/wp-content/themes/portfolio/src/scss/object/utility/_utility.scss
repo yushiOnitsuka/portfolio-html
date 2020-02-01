@@ -1,0 +1,46 @@
+//display
+
+.u-db{
+    display: block;
+}
+.u-di{
+    display: inline;
+}
+.u-sp_none{display: none;}
+.u-pc_none{display: block;}
+.u-pc_none--flex{display: flex;}
+.u-sp_none--flex{display: none;}
+
+@include mq(md) { 
+    .u-sp_none{display: block;}
+    .u-pc_none{display: none;}
+    .u-pc_none--flex{display: none;}
+    .u-sp_none--flex{display: flex;}
+}
+
+
+//z-index
+
+@for $z-index from -1 through 200 {
+    .u-zi_#{$z-index} {
+        z-index: #{$z-index};
+    }
+} 
+
+//margin
+@for $mt from 1 through 20 {
+    .u-mt_#{$mt * 8} {
+        margin-top: 8px * $mt;
+    }
+} 
+@for $mb from 1 through 20 {
+    .u-mb_#{$mb * 8} {
+        margin-bottom: 8px * $mb;
+    }
+} 
+
+
+//color
+.u-bg_main{
+    background: $main-color;
+}

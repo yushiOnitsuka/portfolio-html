@@ -1,0 +1,45 @@
+.l-container {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    &__px{
+        padding: 80px 5%;
+        width: 100%;
+        box-sizing: border-box;
+        &:last-of-type{
+            margin-bottom: 63px;
+        }
+    }
+    @include mq(md) { 
+        padding: 0 0 0 96px;
+        &__px{
+            padding: 160px 4%;
+            position: relative;
+            &:last-of-type{
+                margin-bottom: 0;
+            }
+        }
+    }
+    @include mq(xl) { 
+        &__px{
+            padding: 160px 4%;
+            position: relative;
+        }
+    }
+}
+
+.l-container--lower {
+    padding-bottom: 63px;
+}
+
+
+//下層ページ
+.l-container--about,.l-container--work {
+    padding: 80px 5%;
+    @include mq(md) { 
+        padding: 160px 8%;
+        box-sizing: border-box;
+    }
+}
+
+
+

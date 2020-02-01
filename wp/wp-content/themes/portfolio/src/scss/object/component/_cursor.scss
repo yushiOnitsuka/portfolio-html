@@ -1,0 +1,86 @@
+.c-cursor,
+.c-cursor--follower {
+    border-radius: 50%;
+    position: absolute;
+    cursor: none;
+    pointer-events: none;
+    position: fixed;
+}
+.c-cursor{
+    width: 24px;
+    height: 24px;
+    background: $asort-color;
+    border: solid 1px $main-color;
+    animation: arrow-hover-size-back .3s forwards $cubic;
+}
+@keyframes arrow-hover-size-back {
+    0% {width: 104px; height: 104px; padding: 40px;}
+    100% { width: 24px; height: 24px; }
+}
+
+
+//カーソルhover時
+
+.c-cursor_hover{
+    animation: arrow-hover-size .3s forwards $cubic;
+    @include arrow_anime($direction:row,$deg:-135deg,$padding:64px 72px,$arrow-width:12px);
+    position: fixed;
+    @keyframes arrow-hover-size {
+        0% { width: 24px; height: 24px;}
+        100% { width: 104px; height: 104px; padding: 40px; }
+    }
+    @include arrow_anime_animation($position:left);
+}
+
+//contact
+.c-cursor_hover--contact{
+    @include arrow_anime($padding:48px 80px,$arrow-width:12px);
+    background: none;
+    position: fixed;
+    border: solid 1px $asort-color;
+    animation: arrow-hover-size .3s forwards $cubic;
+    &:before{
+        content: '';
+        position: absolute;
+        bottom: 48px;
+        right: 0;
+        left: 0;
+        margin: auto;
+        width: 32px;
+        height: 32px;
+        background: url(../img/icon_conact.png) no-repeat;
+        animation: mail-icon .6s forwards $cubic;
+    }
+    span{
+        border-left: 1px solid $asort-color;
+        border-bottom: 1px solid $asort-color;
+    }
+    @include arrow_anime_animation;
+    @keyframes mail-icon {
+        0% { opacity: 0;}
+        50% { opacity: 0;}
+        100% { opacity: 1; }
+    }
+}
+
+//遅延カーソル
+.c-cursor--follower{
+    width: 80px;
+    height: 80px;
+    background: $main-color;
+    opacity: .2;
+    animation: arrow-hover-follower-size-back .3s forwards $cubic;
+}
+@keyframes arrow-hover-follower-size-back {
+    0% { width: 240px; height: 240px; }
+    100% { width: 80px; height: 80px; }
+}
+.c-cursor_hover--follower{
+    animation: arrow-hover-follower-size .3s forwards $cubic;
+}
+@keyframes arrow-hover-follower-size {
+    0% { width: 80px; height: 80px;}
+    100% { width: 240px; height: 240px; }
+}
+
+

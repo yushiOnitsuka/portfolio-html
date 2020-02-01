@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+// ----------------------------------
+// foundation
+// ----------------------------------
+
+@import "foundation/_mixin.scss";
+@import "foundation/_base.scss";
+@import "foundation/_color.scss";
+@import "foundation/_slick.scss";
+@import "foundation/_slick-theme.scss";
+
+
+// ----------------------------------
+// layout
+// ----------------------------------
+
+@import "layout/_header.scss";
+@import "layout/_main.scss";
+
+// ----------------------------------
+// object
+// ----------------------------------
+
+//--component--
+
+@import "object/component/_humberger.scss";
+@import "object/component/_cursor.scss";
+@import "object/component/_arrow_anime.scss" ;
+@import "object/component/_loader.scss" ;
+@import "object/component/_title_slidein.scss" ;
+@import "object/component/_fadein.scss" ;
+@import "object/component/_img_hover.scss" ;
+@import "object/component/_h2.scss" ;
+@import "object/component/_lower_contact.scss" ;
+
+//--project--
+
+@import "object/project/_top.scss";
+@import "object/project/_about.scss";
+@import "object/project/_work.scss";
+
+//--utility--
+
+@import "object/utility/_utility.scss";

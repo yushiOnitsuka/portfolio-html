@@ -1,0 +1,54 @@
+
+//top
+.c-top_h2{
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 6px;
+    position: relative;
+    @include mq(md) { 
+        font-size: 4vw;
+        letter-spacing: 16px;
+    }
+}
+
+//about
+.c-about_title_h2 {
+    width: 100%;
+    text-align: center;
+    padding: 30% 5%;
+    font-size: 32px;
+    letter-spacing: 6px;
+    box-sizing: border-box;
+    @include mq(md) { 
+        padding: 300px 0;
+        font-size: 88px;
+        letter-spacing: 30px;
+    }
+}
+.c-about_h2 {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    position: relative;
+    margin-bottom: 32px;
+    @include mq(md) { 
+        font-size: 3vw;
+        letter-spacing: 6px;
+        margin-bottom: 40px;
+    }
+}
+
+//work
+.c-work_title_h2 {
+    font-size: 24px;
+    font-weight: 300;
+    letter-spacing: 4px;
+    line-height: 1.4;
+    margin-top: -32px;
+    @include mq(md) { 
+        font-size: 2vw;
+        line-height: 1.1;
+        margin-top: 0;
+        font-weight: 100;
+    }
+}

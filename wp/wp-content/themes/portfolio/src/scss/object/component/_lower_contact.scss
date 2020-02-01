@@ -1,0 +1,39 @@
+.p-lower_contact{
+    height: 400px;
+    background: $main-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    box-sizing: border-box;
+    h2 {
+        color: $asort-color;
+    }
+    @include mq(md) { 
+        height: 700px;
+    }
+    .p-arrow_anime--contact{
+        @include arrow_anime($arrow-width:8px);
+        padding: 56px;
+        background: none;
+        border: solid 1px $asort-color;
+        &:before{
+            content: '';
+            position: absolute;
+            bottom: 24px;
+            right: 0;
+            left: 0;
+            margin: auto;
+            width: 16px;
+            height: 16px;
+            background: url(../img/icon_conact.png) no-repeat;
+            background-size: contain;
+        }
+        span{
+            border-left: 1px solid $asort-color;
+            border-bottom: 1px solid $asort-color;
+        }
+        @include arrow_anime_animation;
+    }
+}

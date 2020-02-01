@@ -1,0 +1,18 @@
+
+@include mq(md) { 
+    .c-img_hover{
+        display: block;
+        figure{
+            overflow: hidden;
+            line-height: 0;
+            img{
+                transition: all .4s $cubic;
+                transform: scale(1.0);
+            }
+        }
+        &:hover figure img{ 
+            transition: all .4s $cubic;
+            transform: scale(1.1);
+        }
+    }
+}

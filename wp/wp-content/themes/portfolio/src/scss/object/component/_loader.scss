@@ -1,0 +1,118 @@
+
+.c-loader {
+    background: $asort-color;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    animation: slide_out 4s forwards cubic-bezier(.4,.01,0,.99);
+  }
+
+  .c-loader{
+    &:after {
+      background: $main-color;
+      animation: slide_in 4s forwards cubic-bezier(.4,.01,0,.99);
+      height: 100vh;
+      width: 100vw;
+      position: absolute;
+      content: '';
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+    }
+  }
+  
+  @keyframes slide_in {
+    0% {transform: translate3d(-100%, 0, 0);}
+    10% {transform: translate3d(0, 0, 0);}
+    80% {transform: translate3d(0, 0, 0);}
+    100% {transform: translate3d(100%, 0, 0);}
+  }
+
+  @keyframes slide_out {
+    0% {transform: translate3d(0, 0, 0);}
+    80% {transform: translate3d(0, 0, 0);}
+    100% {transform: translate3d(100%, 0, 0);}
+  }
+
+
+  //logo
+  .c-loader span{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    width: 135px;
+    height: 16px;
+    overflow: hidden;
+    left: 0;
+    right: 0;
+    z-index: 12;
+    &:before{
+        content: 'Y';
+        color: $asort-color;
+        font-size: 16px;
+        font-family: $en-font-family;
+        position: absolute;
+        bottom: -200%;
+        top: 0;
+        margin: auto;
+        width: 123px;
+        height: 16px;
+        left: 0;
+        z-index: 12;
+        animation: logo_in_y 4s forwards $cubic;
+    }
+    &:after{
+      content: 'USHI ONITSUKA';
+      color: $asort-color;
+      font-size: 16px;
+      font-family: $en-font-family;
+      position: absolute;
+      bottom: 0;
+      top: 0;
+      margin: auto;
+      width: 123px;
+      height: 16px;
+      right: 5%;
+      z-index: 12;
+      animation: logo_in_ushi 4s forwards $cubic;
+    }
+}
+@include mq(md) { 
+  .c-loader span{
+    width: 270px;
+    height: 30px;
+    &:before{
+      width: 248px;
+      height: 30px;
+      font-size: 32px;
+    }
+    &:after{
+      width: 248px;
+      height: 30px;
+      font-size: 32px;
+      right: 5%;
+    }
+  }
+}
+
+@keyframes logo_in_y{
+  0% {bottom: -200%; opacity: 0;}
+  10% {bottom: -200%; opacity: 0;}
+  20% {bottom: 0; opacity: 1;}
+  50% {bottom: 0; opacity: 1;}
+  80% {bottom: 0; opacity: 0;}
+  100% {bottom: 0; opacity: 0;}
+}
+@keyframes logo_in_ushi {
+  0% { right: 5%; opacity: 0;}
+  10% { right: 5%; opacity: 0;}
+  20% { right: 5%; opacity: 0;}
+  50% {right: 0; opacity: 1;}
+  80% {right: 0; opacity: 0;}
+  100% {right: 0; opacity: 0;}
+}
+

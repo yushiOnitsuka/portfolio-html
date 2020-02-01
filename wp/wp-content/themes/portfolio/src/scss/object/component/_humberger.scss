@@ -1,0 +1,85 @@
+.c-humberger {
+    width: 32px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include mq(md) { 
+        width: 40px;
+        height: 40px;
+    }
+    div {
+        display: block;
+        height: 1px;
+        background: $asort-color;
+    }
+    div:nth-child(1) {
+        animation: humberger-01-back 1s forwards;
+    }
+    @keyframes humberger-01-back {
+        0% {transform: translateY(10px) rotate(45deg);}
+        50% {transform: translateY(10px) rotate(0);}
+        100% { transform: translateY(0);}
+    }
+    @include mq(md) { 
+        @keyframes humberger-01-back {
+            0% {transform: translateY(20px) rotate(45deg);}
+            50% {transform: translateY(20px) rotate(0);}
+            100% { transform: translateY(0);}
+        }
+    }
+    div:nth-child(2) {
+        display: block;
+    }
+    div:nth-child(3) {
+        animation: humberger-03-back 1s forwards;
+    }
+    @keyframes humberger-03-back {
+        0% {transform: translateY(-10px) rotate(-45deg);}
+        50% {transform: translateY(-10px) rotate(0);}
+        100% { transform: translateY(0);}
+    }
+    @include mq(md) { 
+        @keyframes humberger-03-back {
+            0% {transform: translateY(-20px) rotate(-45deg);}
+            50% {transform: translateY(-20px) rotate(0);}
+            100% { transform: translateY(0);}
+        }
+    }
+}
+
+.l-header--open .c-humberger{
+    div:nth-child(1) {
+        animation: humberger-01 1s forwards;
+    }
+    @keyframes humberger-01 {
+        0% { transform: translateY(0);}
+        50% {transform: translateY(10px) rotate(0);}
+        100% {transform: translateY(10px) rotate(45deg);}
+    }
+    @include mq(md) { 
+        @keyframes humberger-01 {
+            0% { transform: translateY(0);}
+            50% {transform: translateY(20px) rotate(0);}
+            100% {transform: translateY(20px) rotate(45deg);}
+        }
+    }
+    div:nth-child(2) {
+        display: none;
+    }
+    div:nth-child(3) {
+        animation: humberger-03 1s forwards;
+    }
+    @keyframes humberger-03 {
+        0% { transform: translateY(0);}
+        50% {transform: translateY(-10px) rotate(0);}
+        100% {transform: translateY(-10px) rotate(-45deg);}
+    }
+    @include mq(md) { 
+        @keyframes humberger-03 {
+            0% { transform: translateY(0);}
+            50% {transform: translateY(-20px) rotate(0);}
+            100% {transform: translateY(-20px) rotate(-45deg);}
+        }
+    }
+}

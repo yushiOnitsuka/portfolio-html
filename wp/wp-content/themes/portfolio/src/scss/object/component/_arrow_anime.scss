@@ -1,0 +1,48 @@
+
+
+//スクロールダウン
+.c-arrow_anime {
+  @include arrow_anime;
+  width: 80px;
+  box-sizing: border-box;
+  margin: auto;
+  @include arrow_anime_animation;
+  @include arrow_anime_pc;
+}
+
+//more button
+
+.c-arrow_anime--more{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  > span {
+    color: $main-color;
+    font-weight: 700;
+    font-family:  $en-font-family;
+    position: relative;
+    width: 100%; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:after{
+      content: '';
+      display: block;
+      width: 60%;
+      @include mq(md) { 
+        width: 70%;
+    }
+      height: 1px;
+      background: $main-color;
+    }
+  }
+}
+.c-arrow_anime--more .c-arrow_anime{
+  @include arrow_anime($direction:row,$deg:-135deg,$border:$asort-color);
+  width: 80px;
+  border: solid 1px $main-color;
+  box-sizing: border-box;
+  background: $main-color;
+  margin-right: 0;
+  @include arrow_anime_animation;
+}
