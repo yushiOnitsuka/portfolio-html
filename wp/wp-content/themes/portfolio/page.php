@@ -1,38 +1,17 @@
-<?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package WordPress
- * @subpackage Twenty_Nineteen
- * @since 1.0.0
- */
+<?php get_header(); ?>
 
-get_header();
-?>
+<main>
+<h1><?php the_title(); ?></h1>	
+	<section class="cont">
+		<?php if( have_posts() ): while( have_posts() ) : the_post(); ?>
+		<p>まずは、お気軽にフォームにてお問い合わせください。内容確認後、担当者よりご連絡させていただきます。<br>
+		下記の必要事項をご入力の上「送信する」ボタンを押してください。※印は必須項目となります。</p>
+		<?php the_content(); ?>
+		<?php endwhile; else: ?>
+			<p>該当の記事はありません。</p>
+		<?php endif; ?>
+	</section>
+</main>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<?php get_footer();
 
-			<?php
-
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
-
-				get_template_part( 'template-parts/content/content', 'page' );
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) {
-					comments_template();
-				}
-
-			endwhile; // End of the loop.
-			?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-<?php
-get_footer();
