@@ -57,49 +57,31 @@
                     </a>
                 </div>
                 <ul class="p-top_work__slider">
-                    <li class="p-top_work__slider__li">
-                        <a class="js-hover c-img_hover" href="/work/ailogo/">
-                            <figure><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/img/top_work_010.jpg" alt=""></figure>
-                            <div class="p-top_work__slider__txt">
-                                <h3>ailogo</h3>
-                                <p>私が企画から制作、運営まで手掛けているオーダーメイドペアルックグッズ専門店です。</p>
-                                <ul>
-                                    <li>Planning</li>
-                                    <li>Marketing</li>
-                                    <li>Management</li>
-                                    <li>Writing</li>
-                                    <li>photographing</li>
-                                    <li>Illustration</li>
-                                    <li>UI design / Coding</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="p-top_work__slider__li">
-                        <a class="js-hover c-img_hover" href="/work/consulting/">
-                            <figure><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/img/top_work_020.jpg" alt=""></figure>
-                            <div class="p-top_work__slider__txt">
-                                <h3>コンサルティング会社（仮サイト）</h3>
-                                <p>組織改革がメインのコンサルティング会社のサイトイメージです。</p>
-                                <ul>
-                                    <li>UI design</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="p-top_work__slider__li">
-                        <a class="js-hover c-img_hover" href="/work/dental/">
-                            <figure><img src="<?php echo get_stylesheet_directory_uri(); ?>/dist/img/top_work_030.jpg" alt=""></figure>
-                            <div class="p-top_work__slider__txt">
-                                <h3>歯科医院（仮サイト）</h3>
-                                <p>治療ではなく、予防がメインの歯科医院のサイトイメージです。</p>
-                                <ul>
-                                    <li>Writing</li>
-                                    <li>UI design</li>
-                                </ul>
-                            </div>
-                        </a>
-                    </li>
+                <?php
+                    $work_args = array(
+                        'post_type' => 'work',
+                        'posts_per_page' => 3,
+                    );
+                    $new_query = new WP_Query($work_args);
+                    if($new_query->have_posts() ): while( $new_query->have_posts() ) : $new_query->the_post();
+                ?>
+                <li class="p-top_work__slider__li">
+                    <a class="js-hover c-img_hover" href="<?php the_permalink(); ?>">
+                        <figure><?php echo my_get_thumbnail(get_the_ID(),'top_work_eycatch'); ?></figure>
+                        <div class="p-top_work__slider__txt">
+                            <h3><?php the_title(); ?></h3>
+                            <p><?php $t_explain = get_field('explain'); ?><?php echo $t_explain; ?></p>
+                            <ul>
+                            <?php my_get_roletag(); ?>
+                            </ul>
+                        </div>
+                    </a>
+                </li>
+                <?php endwhile; 
+                    wp_reset_postdata();
+                else: ?>
+                    <p>該当の記事はありません。</p>
+                <?php endif; ?>
                 </ul>
                 <a class="c-arrow_anime--more u-pc_none--flex" href="/work/">
                     <span>more</span>

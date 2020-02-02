@@ -71,7 +71,7 @@
             </div>
             <ul class="l-nav_list u-zi_-1">
                 <li><a href="<?php echo esc_url(home_url()); ?>">HOME</a></li>
-                <li><a href="<?php echo esc_url(home_url('/about.html')); ?>">ABOUT</a></li>
+                <li><a href="<?php echo esc_url(home_url('/about')); ?>">ABOUT</a></li>
                 <li><a href="<?php echo esc_url(home_url('/work')); ?>">WORK</a></li>
                 <li><a href="mailto:contact&#64;yushi-onitsuka.com">CONTACT</a></li>
             </ul>

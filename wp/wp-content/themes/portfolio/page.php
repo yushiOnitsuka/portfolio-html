@@ -1,17 +1,21 @@
 <?php get_header(); ?>
+<main id="luxy" class="l-container l-container--lower p-about">
+<h2 class="c-about_title_h2"><span><?php the_title(); ?></span></h2>
+<?php if( have_posts() ): while( have_posts() ) : the_post(); ?>
+<?php the_content(); ?>
+<?php endwhile; else: ?>
 
-<main>
-<h1><?php the_title(); ?></h1>	
-	<section class="cont">
-		<?php if( have_posts() ): while( have_posts() ) : the_post(); ?>
-		<p>まずは、お気軽にフォームにてお問い合わせください。内容確認後、担当者よりご連絡させていただきます。<br>
-		下記の必要事項をご入力の上「送信する」ボタンを押してください。※印は必須項目となります。</p>
-		<?php the_content(); ?>
-		<?php endwhile; else: ?>
-			<p>該当の記事はありません。</p>
-		<?php endif; ?>
-	</section>
+<?php endif; ?>
+<section>
+    <div class="l-container--about">
+        <div class="p-lower_contact">
+            <h2 class="c-top_h2 u-mb_40">feel free to contact</h2>
+            <a class="p-arrow_anime--contact" href="/contact"><div><span></span><span></span><span></span></div></a>
+        </div>
+    </div>
+</section>
 </main>
 
 <?php get_footer();
+
 

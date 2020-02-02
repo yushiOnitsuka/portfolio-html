@@ -1,4 +1,18 @@
 <?php
+
+function theme_setup(){
+	//titleタグ
+	add_theme_support('title-tag');
+	//アイキャッチ画像登録
+    add_theme_support('post-thumbnails');
+    //アイキャッチ画像のサイズをカスタマイズ
+    add_image_size('top_work_eycatch',927,576,true);
+    add_image_size('top_blog_eycatch',363,221,true);
+    add_image_size('archive_eycatch',456,283,true);
+}
+add_action('after_setup_theme','theme_setup');
+
+
 function enqueue_scripts(){
 	//css
 	wp_enqueue_style('main-child', get_stylesheet_directory_uri() . '/dist/css/style.css', array(), '1.0', false);
@@ -51,9 +65,39 @@ if ( !function_exists( 'st_custom_editor_settings' ) ) {
 }
 add_filter( 'tiny_mce_before_init', 'st_custom_editor_settings' );
 
+//アイキャッチ画像関数化
+//get_は出力先でechoすればいい
+function my_get_thumbnail($t_id,$t_size) {
+	$t_thumb = '';
+	if(has_post_thumbnail($t_id)){
+		$attr = array(
+			'class' => '--thumbnail_height'
+		);
+		$t_thumb = get_the_post_thumbnail($t_id,$t_size,$attr);
+	} else {
+        $theme_root = get_stylesheet_directory_uri();
+		$t_thumb = '<img src="'.$theme_root.'/images/post-thumbnail.jpg" alt="">';
+	}
+    return $t_thumb;
+}
 
 
-// テーマフォルダ直下のeditor-style.cssを読み込み
-add_action('admin_init',function(){
-    add_editor_style();
-});
+//導入事例タグ生成関数化
+function my_get_roletag() {
+    //$postは投稿に関するオブジェクト
+    //termsオブジェクトの要素を$termに１つずつ順番に格納
+    //$termはtermsオブジェクトの1配列が格納される
+    $t_roletag = '';
+    $t_terms = get_the_terms($post->ID, 'roletag');
+    if ($t_terms) {
+        foreach ( $t_terms as $t_term ) {
+            $t_roletag = '<li>'.esc_html($t_term->name).'</li>';
+            echo $t_roletag;
+        }
+    }
+    return $t_roletag;
+}
+
+
+	
+remove_filter('template_redirect', 'redirect_canonical');
