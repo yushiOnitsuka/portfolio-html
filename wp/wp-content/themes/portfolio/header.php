@@ -2,8 +2,6 @@
 <html lang="ja">
 	<head>
 		<meta charset="<?php bloginfo('charset'); ?>">
-		<title>YUSHI ONITSUKA-portfolio</title>
-		<meta name="description" content="webデザイナー　オニツカユウシのporfpolioです。">
 		<meta name="keywords"  content="" />
 		<meta property="og:title" content="YUSHI ONITSUKA-portfolio">
 		<meta property="og:type" content="article"/>		
@@ -25,31 +23,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
         <script src="dist/js/jquery.matchHeight-min.js"></script>
         <script src="dist/js/slick.min.js"></script>
-        <script type="application/ld+json">
-            {
-                "@context": "http://schema.org",
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                    {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "item": {
-                        "@id": "https://yushi-onitsuka.com/",
-                        "name": "YUSHI ONITSUKA-portfolio"
-                    }
-                }
-                ]
-                }
-        </script>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146405732-1"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-146405732-1');
-		</script>
 		<?php wp_head(); ?>
 	</head> 
 <body>

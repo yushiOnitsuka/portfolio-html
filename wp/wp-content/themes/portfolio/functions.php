@@ -15,7 +15,9 @@ add_action('after_setup_theme','theme_setup');
 
 function enqueue_scripts(){
 	//css
-	wp_enqueue_style('main-child', get_stylesheet_directory_uri() . '/dist/css/style.css', array(), '1.0', false);
+	wp_enqueue_style('font-child', 'https://use.typekit.net/jwl7hod.css', array(), '1.0', false);
+	wp_enqueue_style('reset-child', get_stylesheet_directory_uri() . '/dist/css/reset.css', array(), '1.0', false);
+	wp_enqueue_style('main-child', get_stylesheet_directory_uri() . '/dist/css/style.css', array('reset-child'), '1.0', false);
     // JavaScript
     // WordPress本体のjquery.jsを読み込まない
     wp_deregister_script('jquery');
