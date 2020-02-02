@@ -100,6 +100,27 @@ function my_get_roletag() {
     return $t_roletag;
 }
 
-
-	
-remove_filter('template_redirect', 'redirect_canonical');
+//mainタグに異なるクラスの追加
+function add_my_class() {
+	$post_obj =  $GLOBALS['wp_the_query']->get_queried_object();
+	$slug = '';
+	if(is_front_page()) {
+	  $slug = 'top';
+	  if(is_page() && get_post( get_the_ID() )->post_name) {
+		$slug = $post_obj->post_name;
+	  }
+	} elseif (is_category()) {
+	  $slug = 'cat ' . $post_obj->category_nicename;
+	} elseif (is_tag()) {
+	  $slug = 'tag ' . $post_obj->slug;
+	} elseif ( is_singular() ) {
+	  $slug = $post_obj->post_type . ' ' . $post_obj->post_name;
+	} elseif (is_search()) {
+	  $slug  = $GLOBALS['wp_the_query']->posts ? 'search-results' : 'search-no-results';
+	} elseif ( is_404() ) {
+	  $slug = 'error404';
+	} 
+	$my_classes = esc_attr($slug);
+	//出力する値の前にスペースを入れてある
+	echo ( $my_classes ) ? ' class="' . $my_classes . '"' : '' ;
+  }

@@ -111,7 +111,7 @@
         </section>
         <section class="l-container__px">
             <div class="p-top_contact">
-                <a id="js-contact"  href="mailto:contact&#64;yushi-onitsuka.com">
+                <a id="js-contact" href="/contact">
                     <h2 class="c-top_h2">feel free<br class="u-pc_none"> to contact</h2>
                     <div class="p-arrow_anime--contact"><div><span></span><span></span><span></span></div></div>
                 </a>

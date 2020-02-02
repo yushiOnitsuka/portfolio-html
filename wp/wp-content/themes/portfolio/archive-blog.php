@@ -33,14 +33,6 @@
                 the_posts_pagination($args);
             ?>
     </section>
-    <section>
-        <div class="l-container--about">
-            <div class="p-lower_contact">
-                <h2 class="c-top_h2 u-mb_40">feel free to contact</h2>
-                <a class="p-arrow_anime--contact" href="/contact"><div><span></span><span></span><span></span></div></a>
-            </div>
-        </div>
-    </section>
 </main>
 
 <?php get_footer();
